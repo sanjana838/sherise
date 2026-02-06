@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SheRise - Safety & GBV Support</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">SheRise</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="health.html">Health Hub</a></li>
+            <li><a href="career.html">Career</a></li>
+            <li><a href="#safety">Safety</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Safety & GBV Support</h1>
+            <p>Resources, hotlines, and guidance for women facing violence or harassment.</p>
+        </div>
+    </section>
+
+    <!-- Safety Resources -->
+    <section class="features" id="safety">
+        <h2>Important Resources</h2>
+        <div class="feature-cards">
+            <div class="card">
+                <h3>National Helpline</h3>
+                <p>For immediate help in emergencies.</p>
+                <a href="tel:1091" class="btn">Call 1091</a>
+            </div>
+            <div class="card">
+    <h3>Legal Guidance</h3>
+    <p>Learn about laws that protect women in India, including domestic violence, workplace harassment, and other rights.</p>
+    <a href="https://chrcindia.org/womens-rights-safety/" target="_blank" class="btn">Visit Legal Rights Resource</a>
+</div>
+
+
+            <div class="card">
+                <h3>Workplace Harassment</h3>
+                <p>Resources for workplace safety and harassment complaints.</p>
+                <a href="https://www.shethepeople.tv/" target="_blank" class="btn">Visit Resource</a>
+            </div>
+            <div class="card">
+                <h3>Online Support Communities</h3>
+                <p>Connect with survivors and support networks.</p>
+                <a href="https://www.facebook.com/groups/WomenSupportNetwork/" target="_blank" class="btn">Join Group</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 SheRise. All Rights Reserved.</p>
+    </footer>
+   <<script>
+fetch("http://localhost:5000/track", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    page: window.location.pathname
+  })
+});
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SheRise - Community & Support</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">SheRise</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="health.html">Health Hub</a></li>
+            <li><a href="career.html">Career</a></li>
+            <li><a href="safety.html">Safety</a></li>
+            <li><a href="#community">Community</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Community & Support</h1>
+            <p>Connect with other women, share experiences, ask questions, and find solidarity.</p>
+        </div>
+    </section>
+
+    <!-- Post Form -->
+    <section class="features" id="community">
+        <h2>Share Your Story / Question</h2>
+        <div class="card" style="max-width:600px; margin:auto;">
+            <textarea id="postText" placeholder="Write your story or question here..." rows="4" style="width:100%; padding:10px;"></textarea>
+            <button onclick="addPost()">Post</button>
+        </div>
+
+        <!-- Posts Display -->
+        <div id="posts" style="max-width:600px; margin:2rem auto;"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 SheRise. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function addPost() {
+            const text = document.getElementById('postText').value.trim();
+            if(text === "") {
+                alert("Please write something before posting.");
+                return;
+            }
+
+            const postsDiv = document.getElementById('posts');
+            const postCard = document.createElement('div');
+            postCard.classList.add('card');
+            postCard.style.marginBottom = '1rem';
+            postCard.innerHTML = `<p>${text}</p>`;
+            
+            // Add new post at the top
+            postsDiv.prepend(postCard);
+
+            // Clear textarea
+            document.getElementById('postText').value = "";
+        }
+    </script>
+<script>
+fetch("http://localhost:5000/track", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    page: window.location.pathname
+  })
+});
+</script>
+
+
+
+</body>
+</html>

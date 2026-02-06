@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SheRise Dashboard</title>
+   <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+ 
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f6f6f6;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    h2 {
+      margin-top: 20px;
+      color: #7b1fa2;
+    }
+
+    .chart-container {
+      width: 380px;
+      height: 380px;
+      margin: 30px auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+    }
+
+    canvas {
+      width: 100% !important;
+      height: 100% !important;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Real-Time Page Visits</h2>
+
+<div class="chart-container">
+  <canvas id="myChart"></canvas>
+</div>
+
+<script>
+  // Ensure chart runs only after DOM is loaded
+  document.addEventListener("DOMContentLoaded", function() {
+    // Connect to Socket.io server
+    const socket = io("http://localhost:5000");
+
+    // Get the canvas context
+    const ctx = document.getElementById("myChart").getContext("2d");
+
+    // Create the chart
+    const chart = new Chart(ctx, {
+      type: "doughnut",
+      data: {
+        labels: [],
+        datasets: [{
+          data: [],
+          backgroundColor: [
+            "#ff6384",
+            "#36a2eb",
+            "#ffcd56",
+            "#4bc0c0",
+            "#9966ff",
+            "#ff9f40"
+          ]
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: "bottom"
+          }
+        }
+      }
+    });
+
+    // Listen for real-time updates
+    socket.on("updateGraph", (data) => {
+      chart.data.labels = data.map(d => d._id);
+      chart.data.datasets[0].data = data.map(d => d.count);
+      chart.update();
+    });
+  });
+</script>
+
+</body>
+</html>

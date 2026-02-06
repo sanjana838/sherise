@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SheRise - Empowering Women</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">SheRise</div>
+        <ul class="nav-links">
+            <li><a href="health.html">Health Hub</a></li>
+            <li><a href="career.html">Career</a></li>
+            <li><a href="safety.html">Safety</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="stories.html">Stories</a></li>
+            <!-- Link to dashboard.html -->
+<a href="backend/dashboard.html">Go to Dashboard</a>
+ <li><a href="chatbox.html">Chatbox</a></li>
+
+
+
+
+
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Empowering Women, One Step at a Time</h1>
+            <p>Health. Safety. Education. Career. Community.</p>
+            <a href="health.html" class="btn">Explore SheRise</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://i.ibb.co/4Z5B5Mf/women-empowerment.png" alt="Women Empowerment">
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2>Our Key Features</h2>
+        <div class="feature-cards">
+            <div class="card">
+                <h3>Women's Health Hub</h3>
+                <p>Tips and resources for reproductive health, mental wellness, and fitness.</p>
+            </div>
+            <div class="card">
+                <h3>Career & Education</h3>
+                <p>Access courses, mentorship, and job opportunities to grow professionally.</p>
+            </div>
+            <div class="card">
+                <h3>Safety & GBV Support</h3>
+                <p>Resources and hotlines for women facing gender-based violence.</p>
+            </div>
+            <div class="card">
+                <h3>Community Forum</h3>
+                <p>Connect, share stories, and seek advice from other women.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 SheRise. All Rights Reserved.</p>
+        <div class="socials">
+            <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">LinkedIn</a>
+        </div>
+    </footer>
+    
+<script>
+
+
+fetch("/track", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    page: window.location.pathname
+  })
+});
+
+</script>
+
+
+
+
+</body>
+</html>

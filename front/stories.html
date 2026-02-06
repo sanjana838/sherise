@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SheRise - Inspirational Stories</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Global */
+        body { font-family: 'Montserrat', sans-serif; margin:0; padding:0; background:#f7f7f7; }
+        a { text-decoration:none; }
+
+        /* Navbar */
+        nav {
+            display:flex; justify-content:space-between; align-items:center;
+            padding:1rem 2rem; background:#6a1b9a; color:white;
+        }
+        nav .logo { font-weight:bold; font-size:1.5rem; }
+        nav ul { display:flex; list-style:none; margin:0; padding:0; }
+        nav ul li { margin-left:1rem; }
+        nav ul li a { color:white; font-weight:500; }
+
+        /* Hero Section */
+        .hero { background:#f3e5f5; padding:3rem 2rem; text-align:center; }
+        .hero h1 { font-size:2rem; margin-bottom:0.5rem; color:#6a1b9a; }
+        .hero p { font-size:1.1rem; color:#4a148c; margin-bottom:1rem; }
+        .hero .btn { background:#6a1b9a; color:white; padding:0.5rem 1rem; border-radius:5px; font-weight:bold; }
+
+        /* Search Bar */
+        #searchBar { width:100%; max-width:400px; padding:10px; margin:1rem auto; display:block; border-radius:5px; border:1px solid #ccc; font-size:1rem; }
+
+        /* Cards Section */
+        .features { padding:2rem; text-align:center; }
+        .features h2 { color:#6a1b9a; margin-bottom:2rem; }
+        .feature-cards {
+            display:flex; flex-wrap:wrap; justify-content:center; gap:1rem;
+        }
+        .card {
+            background:white; padding:1.2rem; border-radius:10px;
+            box-shadow:0 2px 6px rgba(0,0,0,0.15); width:250px; text-align:left;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover { transform: translateY(-5px); box-shadow:0 4px 12px rgba(0,0,0,0.2); }
+        .card h3 { color:#4a148c; margin-top:0; }
+        .card p { color:#555; }
+        .card .btn { display:inline-block; padding:0.4rem 0.8rem; background:#6a1b9a; color:white; border-radius:5px; margin-top:0.5rem; font-size:0.9rem; }
+        .card .btn:hover { background:#4a148c; }
+
+        /* Footer */
+        footer { text-align:center; padding:1rem; background:#6a1b9a; color:white; margin-top:2rem; }
+
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+    <div class="logo">SheRise</div>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="health.html">Health Hub</a></li>
+        <li><a href="career.html">Career</a></li>
+        <li><a href="safety.html">Safety</a></li>
+        <li><a href="community.html">Community</a></li>
+        <li><a href="stories.html">Stories</a></li>
+    </ul>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+    <h1>Inspirational Stories</h1>
+    <p>Real stories of women overcoming challenges and achieving greatness.</p>
+    <a href="#stories" class="btn">See Stories</a>
+</section>
+
+<!-- Search Bar -->
+<input type="text" id="searchBar" placeholder="Search any woman (e.g., Kalpana Chawla) and press Enter">
+
+<!-- Stories -->
+<section class="features" id="stories">
+    <h2>Women Who Inspire</h2>
+    <div class="feature-cards">
+        <div class="card">
+            <h3>Kalpana Chawla</h3>
+            <p>First Indian woman in space, a symbol of courage and achievement.</p>
+            <a href="https://en.wikipedia.org/wiki/Kalpana_Chawla" target="_blank" class="btn">Read More</a>
+        </div>
+        <div class="card">
+            <h3>Malala Yousafzai</h3>
+            <p>Activist for girls’ education and the youngest Nobel Prize laureate.</p>
+            <a href="https://en.wikipedia.org/wiki/Malala_Yousafzai" target="_blank" class="btn">Read More</a>
+        </div>
+        <div class="card">
+            <h3>Mary Kom</h3>
+            <p>Olympic medalist and champion boxer inspiring women in sports.</p>
+            <a href="https://en.wikipedia.org/wiki/Mary_Kom" target="_blank" class="btn">Read More</a>
+        </div>
+        <div class="card">
+            <h3>Kiran Mazumdar-Shaw</h3>
+            <p>Founder of Biocon and a leading entrepreneur in biotechnology.</p>
+            <a href="https://en.wikipedia.org/wiki/Kiran_Mazumdar-Shaw" target="_blank" class="btn">Read More</a>
+        </div>
+        <div class="card">
+            <h3>Savitribai Phule</h3>
+            <p>Indian social reformer and pioneer of women’s education.</p>
+            <a href="https://en.wikipedia.org/wiki/Savitribai_Phule" target="_blank" class="btn">Read More</a>
+        </div>
+        <div class="card">
+            <h3>P.V. Sindhu</h3>
+            <p>Badminton champion and Olympic medalist inspiring athletes worldwide.</p>
+            <a href="https://en.wikipedia.org/wiki/P._V._Sindhu" target="_blank" class="btn">Read More</a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2026 SheRise. All Rights Reserved.</p>
+</footer>
+
+<!-- JS Search Bar to Google -->
+<script>
+    const searchBar = document.getElementById('searchBar');
+    searchBar.addEventListener('keypress', function(e){
+        if(e.key === 'Enter'){
+            const query = searchBar.value.trim();
+            if(query !== ''){
+                const url = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+                window.open(url, '_blank');
+                searchBar.value = '';
+            }
+        }
+    });
+</script>
+<script>
+fetch("http://localhost:5000/track", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    page: window.location.pathname
+  })
+});
+</script>
+
+
+
+
+</body>
+</html>

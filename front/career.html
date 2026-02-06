@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SheRise - Career & Education</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">SheRise</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="health.html">Health Hub</a></li>
+            <li><a href="#career">Career</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Career & Education Support</h1>
+            <p>Helping women grow professionally with guidance, courses, and opportunities.</p>
+        </div>
+    </section>
+
+    <!-- Career Features -->
+    <section class="features" id="career">
+        <h2>Opportunities for Growth</h2>
+        <div class="feature-cards">
+            <div class="card">
+                <h3>Mentorship</h3>
+                <p>Connect with experienced professionals for guidance and career advice.</p>
+                <a href="#" class="btn">Find Mentor</a>
+            </div>
+            <div class="card">
+                <h3>Job Opportunities</h3>
+                <p>Browse curated job listings suitable for women at various career stages.</p>
+                <a href="#" class="btn">View Jobs</a>
+            </div>
+            <div class="card">
+                <h3>Online Courses</h3>
+                <p>Upskill yourself with free or paid online courses in different domains.</p>
+                <a href="#" class="btn">Explore Courses</a>
+            </div>
+            <div class="card">
+                <h3>Networking Events</h3>
+                <p>Participate in workshops, webinars, and networking events for professional growth.</p>
+                <a href="#" class="btn">Join Events</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 SheRise. All Rights Reserved.</p>
+    </footer>
+  <script>
+fetch("http://localhost:5000/track", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    page: window.location.pathname
+  })
+});
+</script>
+
+
+</body>
+</html>

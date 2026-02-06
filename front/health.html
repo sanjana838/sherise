@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SheRise - Women's Health Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="logo">SheRise</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#health">Health Hub</a></li>
+            <li><a href="#tracker">Tracker</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Women's Health Hub</h1>
+            <p>Your one-stop platform for wellness, reproductive, and mental health.</p>
+        </div>
+    </section>
+
+    <!-- Health Topics -->
+    <section class="features" id="health">
+        <h2>Health Topics</h2>
+        <div class="feature-cards">
+            <div class="card">
+                <h3>Reproductive Health</h3>
+                <p>Learn about menstrual cycles, pregnancy planning, and reproductive wellness.</p>
+            </div>
+            <div class="card">
+                <h3>Mental Health</h3>
+                <p>Tips for managing stress, anxiety, and emotional well-being.</p>
+            </div>
+            <div class="card">
+                <h3>Fitness & Nutrition</h3>
+                <p>Guidelines for exercises, diets, and staying active.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Simple Tracker -->
+    <section class="features" id="tracker">
+        <h2>Quick Menstrual Tracker</h2>
+        <div class="card" style="max-width:400px; margin: auto;">
+            <label for="cycle">Enter start date of your cycle:</label>
+            <input type="date" id="cycle" name="cycle">
+            <button onclick="calculateCycle()">Check Next Cycle</button>
+            <p id="result"></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 SheRise. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function calculateCycle() {
+            const start = new Date(document.getElementById('cycle').value);
+            if(!start.getTime()) {
+                document.getElementById('result').innerText = "Please enter a valid date.";
+                return;
+            }
+            const nextCycle = new Date(start);
+            nextCycle.setDate(start.getDate() + 28); // average cycle 28 days
+            document.getElementById('result').innerText = 
+                "Your estimated next cycle starts on: " + nextCycle.toDateString();
+        }
+    </script>
+  <script>
+fetch("http://localhost:5000/track", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+    page: window.location.pathname
+  })
+});
+</script>
+
+
+
+
+</body>
+</html>
