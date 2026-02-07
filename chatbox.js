@@ -4,12 +4,16 @@ const path = require("path");
 
 const app = express();
 const PORT = 3000;
-const API_KEY = process.env.OPENROUTER_API_KEY="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";
+const API_KEY = "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";
+
+//const API_KEY = process.env.OPENROUTER_API_KEY="sk-or-v1-0b925310acba244dd8021e8d7bfadd5afcbc52ce229ed307ad068";
 
 app.use(express.json());
+app.use(express.static(path.join(__dirname, "front")));
 
-// ✅ SERVE public FOLDER
-app.use(express.static(path.join(__dirname, "front","index.html" ,"chatbox.html" ,"dashboard.html" )));
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "front", "chatbox.html"));
+});
 
 app.post("/chat", async (req, res) => {
   try {
@@ -31,17 +35,16 @@ app.post("/chat", async (req, res) => {
     );
 
     const data = await response.json();
-    res.json({ reply: data.choices[0].message.content });
 
-  } catch (error) {
-    console.error(error);
+    res.json({
+      reply: data.choices?.[0]?.message?.content || "No reply"
+    });
+
+  } catch (err) {
+    console.error(err);
     res.json({ reply: "⚠️ Something went wrong" });
   }
 });
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "front", "chatbox.html"));
-});
-
 
 app.listen(PORT, () => {
   console.log(`🌸 SheRise server running at http://localhost:${PORT}`);

@@ -6,6 +6,36 @@
     <title>SheRise - Career & Education</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ===== BUTTON FIX ===== */
+        .card .btn {
+            display: inline-block;      /* ensures full button area is clickable */
+            margin-top: 15px;           /* space between text and button */
+            padding: 12px 20px;         /* comfortable clickable area */
+            border-radius: 8px;         /* rounded corners */
+            text-decoration: none;      /* remove underline */
+            text-align: center;         /* center text inside button */
+            cursor: pointer;            /* pointer on hover */
+        }
+
+        .card .btn:hover {
+            opacity: 0.9;               /* slight hover effect */
+        }
+
+        /* ===== OPTIONAL: keep cards aligned ===== */
+        .feature-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            text-align: center; /* center content in each card */
+        }
+    </style>
 </head>
 <body>
     <!-- Navbar -->
@@ -13,8 +43,8 @@
         <div class="logo">SheRise</div>
         <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="health.html">Health Hub</a></li>
-            <li><a href="#career">Career</a></li>
+          
+            <li><a href="career.html">Career</a></li>
         </ul>
     </nav>
 
@@ -33,22 +63,25 @@
             <div class="card">
                 <h3>Mentorship</h3>
                 <p>Connect with experienced professionals for guidance and career advice.</p>
-                <a href="#" class="btn">Find Mentor</a>
+                <a href="https://mentorcruise.com/" class="btn" target="_blank">Find Mentor</a>
+                
             </div>
             <div class="card">
                 <h3>Job Opportunities</h3>
                 <p>Browse curated job listings suitable for women at various career stages.</p>
-                <a href="#" class="btn">View Jobs</a>
+                <a href="https://www.jobsforher.com/" class="btn" target="_blank">View Jobs</a>
             </div>
             <div class="card">
                 <h3>Online Courses</h3>
                 <p>Upskill yourself with free or paid online courses in different domains.</p>
-                <a href="#" class="btn">Explore Courses</a>
+        
+                 <a href="https://www.coursera.org/" class="btn" target="_blank">Explore Courses</a>
+
             </div>
             <div class="card">
                 <h3>Networking Events</h3>
                 <p>Participate in workshops, webinars, and networking events for professional growth.</p>
-                <a href="#" class="btn">Join Events</a>
+            <a href="https://www.eventbrite.com/" class="btn" target="_blank">Join Events</a>
             </div>
         </div>
     </section>
@@ -57,16 +90,15 @@
     <footer>
         <p>&copy; 2026 SheRise. All Rights Reserved.</p>
     </footer>
-  <script>
-fetch("http://localhost:5000/track", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({
-    page: window.location.pathname
-  })
-});
-</script>
 
-
+    <script>
+        fetch("http://localhost:5000/track", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                page: window.location.pathname
+            })
+        });
+    </script>
 </body>
 </html>
